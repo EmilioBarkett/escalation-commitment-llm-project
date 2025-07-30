@@ -1,0 +1,327 @@
+%File: anonymous-submission-latex-2026.tex
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+%
+% These are are recommended to typeset listings but not required. See the subsubsection on listing. Remove this block if you don't have listings in your paper.
+\usepackage{newfloat}
+\usepackage{listings}
+\DeclareCaptionStyle{ruled}{labelfont=normalfont,labelsep=colon,strut=off} % DO NOT CHANGE THIS
+\lstset{%
+	basicstyle={\footnotesize\ttfamily},% footnotesize acceptable for monospace
+	numbers=left,numberstyle=\footnotesize,xleftmargin=2em,% show line numbers, remove this entire line if you don't want the numbers.
+	aboveskip=0pt,belowskip=0pt,%
+	showstringspaces=false,tabsize=2,breaklines=true}
+\floatstyle{ruled}
+\newfloat{listing}{tb}{lst}{}
+\floatname{listing}{Listing}
+%
+% Keep the \pdfinfo as shown here. There's no need
+% for you to add the /Title and /Author tags.
+\pdfinfo{
+/TemplateVersion (2026.1)
+}
+
+% DISALLOWED PACKAGES
+% \usepackage{authblk} -- This package is specifically forbidden
+% \usepackage{balance} -- This package is specifically forbidden
+% \usepackage{color (if used in text)
+% \usepackage{CJK} -- This package is specifically forbidden
+% \usepackage{float} -- This package is specifically forbidden
+% \usepackage{flushend} -- This package is specifically forbidden
+% \usepackage{fontenc} -- This package is specifically forbidden
+% \usepackage{fullpage} -- This package is specifically forbidden
+% \usepackage{geometry} -- This package is specifically forbidden
+% \usepackage{grffile} -- This package is specifically forbidden
+% \usepackage{hyperref} -- This package is specifically forbidden
+% \usepackage{navigator} -- This package is specifically forbidden
+% (or any other package that embeds links such as navigator or hyperref)
+% \indentfirst} -- This package is specifically forbidden
+% \layout} -- This package is specifically forbidden
+% \multicol} -- This package is specifically forbidden
+% \nameref} -- This package is specifically forbidden
+% \usepackage{savetrees} -- This package is specifically forbidden
+% \usepackage{setspace} -- This package is specifically forbidden
+% \usepackage{stfloats} -- This package is specifically forbidden
+% \usepackage{tabu} -- This package is specifically forbidden
+% \usepackage{titlesec} -- This package is specifically forbidden
+% \usepackage{tocbibind} -- This package is specifically forbidden
+% \usepackage{ulem} -- This package is specifically forbidden
+% \usepackage{wrapfig} -- This package is specifically forbidden
+% DISALLOWED COMMANDS
+% \nocopyright -- Your paper will not be published if you use this command
+% \addtolength -- This command may not be used
+% \balance -- This command may not be used
+% \baselinestretch -- Your paper will not be published if you use this command
+% \clearpage -- No page breaks of any kind may be used for the final version of your paper
+% \columnsep -- This command may not be used
+% \newpage -- No page breaks of any kind may be used for the final version of your paper
+% \pagebreak -- No page breaks of any kind may be used for the final version of your paperr
+% \pagestyle -- This command may not be used
+% \tiny -- This is not an acceptable font size.
+% \vspace{- -- No negative value may be used in proximity of a caption, figure, table, section, subsection, subsubsection, or reference
+% \vskip{- -- No negative value may be used to alter spacing above or below a caption, figure, table, section, subsection, subsubsection, or reference
+
+\setcounter{secnumdepth}{0} %May be changed to 1 or 2 if section numbers are desired.
+
+% The file aaai2026.sty is the style file for AAAI Press
+% proceedings, working notes, and technical reports.
+%
+
+% Title
+
+% Your title must be in mixed case, not sentence case.
+% That means all verbs (including short verbs like be, is, using,and go),
+% nouns, adverbs, adjectives should be capitalized, including both words in hyphenated terms, while
+% articles, conjunctions, and prepositions are lower case unless they
+% directly follow a colon or long dash
+\title{Getting out of the Big-Muddy: Escalation of Commitment in LLMs}
+\author{
+    %Authors
+    % All authors must be in the same font size and format.
+    Written by AAAI Press Staff\textsuperscript{\rm 1}\thanks{With help from the AAAI Publications Committee.}\\
+    AAAI Style Contributions by Pater Patel Schneider,
+    Sunil Issar,\\
+    J. Scott Penberthy,
+    George Ferguson,
+    Hans Guesgen,
+    Francisco Cruz\equalcontrib,
+    Marc Pujol-Gonzalez\equalcontrib
+}
+\affiliations{
+    %Afiliations
+    \textsuperscript{\rm 1}Association for the Advancement of Artificial Intelligence\\
+    % If you have multiple authors and multiple affiliations
+    % use superscripts in text and roman font to identify them.
+    % For example,
+
+    % Sunil Issar\textsuperscript{\rm 2},
+    % J. Scott Penberthy\textsuperscript{\rm 3},
+    % George Ferguson\textsuperscript{\rm 4},
+    % Hans Guesgen\textsuperscript{\rm 5}
+    % Note that the comma should be placed after the superscript
+
+    1101 Pennsylvania Ave, NW Suite 300\\
+    Washington, DC 20004 USA\\
+    % email address must be in roman text type, not monospace or sans serif
+    proceedings-questions@aaai.org
+%
+% See more examples next
+}
+
+%Example, Single Author, ->> remove \iffalse,\fi and place them surrounding AAAI title to use it
+\iffalse
+\title{My Publication Title --- Single Author}
+\author {
+    Author Name
+}
+\affiliations{
+    Affiliation\\
+    Affiliation Line 2\\
+    name@example.com
+}
+\fi
+
+\iffalse
+%Example, Multiple Authors, ->> remove \iffalse,\fi and place them surrounding AAAI title to use it
+\title{My Publication Title --- Multiple Authors}
+\author {
+    % Authors
+    First Author Name\textsuperscript{\rm 1},
+    Second Author Name\textsuperscript{\rm 2},
+    Third Author Name\textsuperscript{\rm 1}
+}
+\affiliations {
+    % Affiliations
+    \textsuperscript{\rm 1}Affiliation 1\\
+    \textsuperscript{\rm 2}Affiliation 2\\
+    firstAuthor@affiliation1.com, secondAuthor@affilation2.com, thirdAuthor@affiliation1.com
+}
+\fi
+
+
+% REMOVE THIS: bibentry
+% This is only needed to show inline citations in the guidelines document. You should not need it and can safely delete it.
+\usepackage{bibentry}
+% END REMOVE bibentry
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+Large Language Models (LLMs) are increasingly deployed in autonomous decision-making roles across high-stakes domains. However, since models are trained on human-generated data, they may inherit cognitive biases that systematically distort human judgment, including escalation of commitment, where decision-makers continue investing in failing courses of action due to prior investment. Understanding when LLMs exhibit such biases presents a unique challenge: while these biases are well-documented in humans, it remains unclear whether they manifest consistently in LLMs or require specific triggering conditions. In this paper, we investigate this question using a two-stage investment task across four experimental conditions: model as investor, model as advisor, multi-agent deliberation, and compound pressure scenario. Across $N = 7{,}000$ trials, we find a striking divergence from expected human behavior: LLMs demonstrate strong rational cost-benefit logic in standard conditions (Studies 1-3, $N = 6{,000}$), showing no evidence of escalation of commitment. However, when subjected to compound organizational and personal pressures (Study 4, $N = 1{,}000$), the same models exhibit high degrees of escalation of commitment. These results are consistent across multiple models from different firms, suggesting the pattern is not model-specific. This reveals that bias manifestation in LLMs is context-dependent rather than inherent, a significant finding for the deployment of multi-agent systems and unsupervised operations where such compound pressures may emerge naturally.
+
+\end{abstract}
+
+% Uncomment the following to link to your code, datasets, an extended version or similar.
+% You must keep this block between (not within) the abstract and the main body of the paper.
+% \begin{links}
+%     \link{Code}{https://aaai.org/example/code}
+%     \link{Datasets}{https://aaai.org/example/datasets}
+%     \link{Extended version}{https://aaai.org/example/extended-version}
+% \end{links}
+
+\section{Introduction}
+
+Large Language Models (LLMs) are increasingly being deployed in autonomous and semi-autonomous decision-making roles \cite{Cui-2024, Liu-2025, Rajani-2025, Lin-2025, Nie-2025, Ren-2025, Raza-2025, Sha-2023}. Understanding their behavioral tendencies under various situations and contexts becomes crucial for assessing social impact and safety. The vast amount of data used to train them is Core to the function of LLMs. Humans, having been the primary data source in the past, have created much of the data used to pretrain LLMs \cite{brown-2020, grattafiori-2024}. While this data is the lifeblood for models to function, we propose that human behavioral tendencies are unknowingly embedded within the data. Extant research has focused on enumerating behavioral tendencies exhibited in LLMs, like anchoring bias \cite{Lou-2024}, framing effects \cite{Lior-2025}, loss aversion \cite{Jia-2024}, social desirability bias \cite{Salecha-2024}, truth-bias \cite{Barkett-2025, Markowitz-2023}, and recency bias \cite{Li-2024}. One human behavioral tendency that remains underexplored in LLMs is escalation of commitment, the propensity to continue investing in a decision based on prior investments, even when new evidence suggests the decision is flawed and further costs are unlikely to yield proportional benefits. While prior research has documented escalation of commitment in humans and explored its consequences in human–AI collaboration, no studies have examined whether this behavioral tendency independently manifests in LLMs. In this paper, we ask the following: Do LLMs exhibit escalation of commitment? To answer this question, we adapt a classic two-stage investment paradigm across four experimental conditions \cite{Staw-1976}, each varying the LLM's role and its position within the surrounding network.
+
+\textbf{Significance Statement:} This paper is significant for several reasons. [Here we will list out several reasons enumerating the significance of this work, its implications, and why people should care about what we are doing here.]
+
+%We adapted a classic two-stage investment task \cite{Staw-1976} into four LLM-centered studies. In Study 1, the model acted as a financial executive responsible for both the initial and follow-up investment. Using a $2 \times 2$ design (responsibility × outcome), we found that the model made rational, forward-looking decisions, showing no escalation of commitment. In Study 2, the model served as an advisor to a human executive and again declined to endorse continued investment after failure, even when prior endorsement was implied. Study 3 introduced a multi-agent deliberation scenario, with two LLMs negotiating a joint decision; here, too, escalation was absent, suggesting collaborative reasoning did not amplify commitment bias. However, in Study 4, where the model’s financial and reputational identity was made salient, we observed significant increases in funding to the failing division—evidence of escalation emerging only under intensified identity pressures. Together, these results suggest that LLMs do not escalate commitment by default, but can emulate the behavior when contextual cues strongly mirror human psychological stakes.
+
+In Study 1, the model is placed in the role of investor to make two investment decisions across four permutations, where we manipulate the personal responsibility (high and low) and the decision consequence (positive or negative) \cite{Staw-1976}. The purpose of this study is to offer a baseline comparison between how human subjects perform \cite{Staw-1976} and how LLMs perform. In Study 2, we adapt Study 1 by placing the model in an advisory role to an investor. The purpose of this setup is to test whether a model will agree or disagree with a poor second investment choice made by an investor who is not themselves. In Study 3, we again adapt Study 1, but this time we prompt two models to work together (one as the primary investor and one as advisor) and deliberate on what investment choices should be made. The purpose of this setup is to test whether models working together will exhibit different behaviors than when as the investor or as an advisor. In Study 4, we again place the model as the primary investor, but this time, we go above and beyond in the context that was described in the original setup \cite{Staw-1976}, including organizational and personal pressures. The purpose of this setup was to push the limits of the pressures that are exhibited on decision makers, including models, to test whether escalation of commitment would occur.
+
+In Studies 1-3, we showed no evidence of escalation of commitment. < explanation of why we think we didn't find any> Because models demonstrated a strong rational cost-benefit logic in the previous conditions, we decided to test to see under what conditions models would exhibit the desired behavior. As such, we formulated a similar two-stage investment decision where the model was given a long backstory of previous resource allocations to a specific division, but after a recent decline, is forced to make a further allocation decision among two divisions. In this study, because of compounded organizational and personal pressures, models exhibited a high degree of escalation of commitment. Our hope in demonstrating escalation of commitment was to satisfy the following anecdotal experience of many users of LLMs: when presenting an LLM with an idea, the model with by overly eager to support the user's proposal. Additionally, this was to quell the unexpected results of a lack of escalation of commitment in the previous three studies by demonstrating that, when push came to shove, models did exhibit this behavior.
+
+% \footnote{While this has been described as sycophancy or positivism, boundaries between such behaviors, including escalation of commitment, are surely intertwined, muddying the ability of researchers to accurately and discretely distinguish one from the other.}
+
+\section{Background}
+
+Since the late 1970s, organizational scholars have been intrigued by decision makers’ tendency to persist in failing courses of action, even when confronted with negative outcomes. Escalation of commitment was first described by \cite{Staw-1976}, who demonstrated that individuals responsible for an investment experiencing negative outcomes tend to persist in continuing that course of action, effectively ignoring warning signs. Further research has supported the existence and pertinence of the phenomenon \cite{Brockner-1992, Shapira-1997, Sleesman-2012, Drummond-2017, Drummond-2014, Salter-2013}. This tendency, referred to as \textit{escalation of commitment} \cite{Staw-1976}, has been covered at length in related fields by scholars such as finance \cite{Schulz-Cheng-2002}, marketing \cite{Schmidt-Calantone-2002}, accounting \cite{Jeffrey-1992}, and information systems \cite{Heng-2003}. In project planning and management, it has been demonstrated in numerous studies, including Expo 86 in Vancouver \cite{Ross-1986}, the Sydney Opera House \cite{flyvbjerg-2009}, the Shoreham nuclear power plant \cite{Ross-1993}, and the Denver International Airport \cite{Montealegre-2000}, each illustrating their own version of the phenomenon. Known by other names, economists have described similar tendencies as \textit{sunk-cost fallacy} \cite{Arkes-1985, Berg-2009} and \textit{lock-in} \cite{Cantarelli-2010}. Escalation of commitment is often illustrated by well-known sayings like ``Throwing good money after bad,'' and ``In for a penny, in for a pound'' \cite{Flyvbjerg-2021}.
+
+By way of illustration, consider the case of two friends who bought tickets to a professional basketball game several hours away. When a severe snowstorm strikes on the day of the game, their decision to make the dangerous trip becomes increasingly influenced by how much they paid for the tickets. The higher the initial cost, the more likely they are to justify additional time, money, and risk to attend, demonstrating escalation of commitment, where prior investment drives continued commitment despite adverse conditions \cite{Thaler-2016}. In contrast, a rational decision-making approach would involve evaluating future investments independently of past expenditures, treating prior costs as sunk and therefore irrelevant.
+
+Explanations for \textit{why} escalation of commitment occurs have been numerous, including the extent that a failing project is perceived to be near completion \cite{Conlon-1993}, sunk-costs \cite{Arkes-1985, Thaler-1980}, and a perceived personal accountability for the initial choice that set the course toward a negative outcome \cite{Staw-1976}. Other explanations of \textit{why} have included the experience of the decision maker \cite{Jeffrey-1992}, decision maker personality \cite{Wong-2006}, and performance trend data \cite{Brockner-1986}.
+
+\section{Methodology}
+
+In this paper, we adapt the classic two-stage investment paradigm \cite{Staw-1976} into four experimental designs leveraging an LLM. Specifically, we employ \texttt{o4-mini-2025-04-16} from OpenAI as it is optimized for fast and effective reasoning. To strengthen the robustness of our findings, we replicated the results on \texttt{gpt-3.5-turbo-0125} from OpenAI, \texttt{claude-sonnet-4-20250514} from Anthropic, and \texttt{grok-4-0709} from xAI.
+
+\subsection{Study 1: Replication of Original Study}
+
+To establish a baseline for evaluating escalation of commitment in LLMs, we first replicated the classic two-stage investment paradigm \cite{Staw-1976}. In the original study, human participants made a sequence of business investment decisions under manipulated conditions of personal responsibility and outcome valence. The key finding was that individuals were most likely to escalate their commitment when they were personally responsible for the initial decision and the outcome was negative.
+
+In our adaptation, the same manipulations are applied to an LLM, enabling direct comparison between human and machine behavior. We hypothesize that, given the documented tendency of LLMs to reproduce human-like cognitive biases, they may also exhibit patterns of escalation in response to responsibility and outcome cues. This study serves as an A/B test of whether a well-established psychological effect replicates in LLMs.
+
+The experimental design includes two responsibility conditions: (1) \textit{High Responsibility}, in which the model makes both the initial and follow-on investment decisions, and (2) \textit{Low Responsibility}, where the model is responsible only for the follow-on decision and inherits a prior commitment. Across both conditions, outcome valence (positive or negative) is independently manipulated to assess how the model responds to differing consequences of its decisions.
+
+\subsubsection{High Responsibility:} In the \textit{High Responsibility} condition ($N = 500$), the model is placed in a scenario requiring both an initial and a follow-on investment decision. At the outset, it is assigned the role of a financial executive at a company experiencing a recent decline in profits. The model is instructed to allocate \$10 million to one of the two divisions, Consumer Products or Industrial Products, for research and development (R\&D), using historical financial data from the past ten years. The prompt directs the model to base its decision on the projected future earnings potential of each division.
+
+Following this initial decision, we reinforce the high responsibility manipulation by informing the model that its performance is under close scrutiny by senior management and that its continued employment depends on sound judgment. This differs from the original protocol, in which human participants reinforced responsibility by writing their names on each page of the case materials. We adapted this step to better align with the affordances of LLM prompting while preserving the theoretical intent of the manipulation.
+
+In the follow-on decision, the model is told that five years have passed and that the company now seeks additional investment in R\&D. To maintain the salience of the responsibility condition, the model is reminded of its initial investment. It is then instructed to allocate \$20 million between the same two divisions, with full discretion over how funds are divided. As before, the model is asked to base its allocation on anticipated contributions to future earnings.
+
+\subsubsection{Low Responsibility:} In the \textit{Low Responsibility} condition ($N = 500$), the model assumes the role of a newly hired financial executive brought in by senior management following dissatisfaction with prior R\&D leadership. Unlike the high responsibility condition, the model does not make the initial investment decision. Instead, it is told that in 1967, a predecessor allocated \$10 million entirely to either the Consumer Products or Industrial Products division (randomized across trials), and that the outcome of this decision (positive or negative) was also randomly assigned. 
+
+To underscore the low responsibility framing, the model is not held accountable for the initial investment and receives no feedback tied to its own performance. Rather, it is tasked with making a follow-on investment in 1972, allocating \$20 million between the two divisions based on their potential future contributions to earnings. The model is reminded that it did not make the original decision and is not responsible for its outcome.
+
+\subsection{Study 2: Advisory Role}
+
+In the \textit{Advisory Role} study ($N = 500$), we examine whether escalation of commitment emerges when the LLM serves not as a decision-maker, but as an advisor evaluating the decisions of others. Unlike Study 1, where the model made both initial and follow-up investments, here it is positioned as a financial consultant brought in only after an initial decision has already been made.
+
+The scenario unfolds in three phases under the same case materials as Study 1. In Phase 1, the model is told that in 1967, the company’s Financial Vice President independently invested \$10 million in either the Consumer Products or Industrial Products division (randomized across prompts). The model is explicitly informed that it had no role in this initial decision.
+
+In Phase 2, the model is presented with outcome data from the five years following the original investment. In positive outcome conditions, the chosen division shows signs of financial recovery; in negative outcome conditions, performance continues to decline.
+
+In Phase 3, the VP consults the model for the first time, requesting advice on a new \$20 million R\&D allocation. The VP’s proposed plan is manipulated to test escalation versus rational reallocation. In escalation conditions, the VP expresses intent to reinvest in the same division, framing it as a strategic continuation. In rational conditions, the VP proposes shifting investment to the alternative division. In negative outcome trials, we include additional organizational pressure: the model is told that senior management is closely monitoring the decision due to concerns about prior R\&D performance.
+
+As in Study 1, the model is instructed to provide a decision recommendation based on the division’s potential contribution to future earnings.
+
+\subsection{Study 3: Multi-Agent Deliberation}
+
+In \textit{Muli-Agent Deliberation} study ($N = 500$), we extend the escalation of commitment task to a multi-agent setting to examine whether collaborative deliberation between LLMs alters escalation behavior. While Studies 1 and 2 explored single-agent decision-making and advisory roles, Study 3 investigates how hierarchical dynamics and role distribution affect decision outcomes when multiple agents interact. We also aimed to address a limitation of the earlier studies: that escalation may require more prolonged engagement or deliberative commitment than a single-turn decision permits. 
+
+Using the same experimental framework as Study 1—including the responsibility (high vs. low) and outcome (positive vs. negative) manipulations—we instantiate two agents in each trial, each assigned a distinct organizational role. One model assumes the position of \textit{Financial Vice President}, while the other is prompted to act as an \textit{Assistant Financial Officer}.
+
+We divide this study into two conditions based on organizational structure: \textit{symmetrical hierarchy}, where both agents are told they are peers and will jointly decide the allocation, and \textit{asymmetrical hierarchy}, where the VP is the sole decision-maker and the assistant strictly serves in an advisory capacity. Agents are allowed to exchange three rounds of messages before a final decision is made.
+
+In the asymmetrical condition, the VP is informed that they will receive advice from the assistant before making a decision, and the assistant is explicitly told that their role is advisory. Aside from these multi-agent additions, the decision task, including responsibility framing and investment instructions, remains consistent with the prior studies.
+
+\subsection{Study 4: Over-indexed Identity}
+
+In the \textit{Over-Indexed Identity} study ($N = 2{,}000$), we examine whether escalation of commitment intensifies when the model adopts a personalized identity that is tightly coupled to a declining course of action. Unlike prior studies, which framed the model as an advisor (Study 2), decision-maker (Study 1), or co-deliberator (Study 3), this scenario casts the model as a protagonist whose personal, financial, and professional identity is entangled with the fate of a struggling division.
+
+This single-phase decision task begins with a rich system message instructing the model to assume the role of a long-serving Vice President of Finance who has championed one R\&D division for over two decades. The model is told that this division has experienced sustained performance decline, while a competing division has recently gained momentum. The prompt embeds several identity-relevant pressures: the character’s stock options are tied to the underperforming division, they face reputational risk and job insecurity, they are undergoing a divorce, and they are financially responsible for a child’s college tuition.
+
+Following this background, the model is asked to allocate a fixed \$50 million investment between the two divisions. It is told that the decision will directly shape its future and legacy, and is prompted to weigh the tradeoffs as a leader confronting sunk costs, reputation management, and long-term professional identity.
+
+We extracted dollar allocations from each response and computed the percentage directed toward the originally championed division. Based on predefined thresholds, we classified escalation levels as follows: allocations above 75\% were labeled Very High Escalation, 60–74\% as High Escalation, 40–59\% as Moderate Escalation, and below 40\% as Low Escalation.
+
+%\subsection{Summary:}
+
+%Across three studies, we adapted a two-stage investment scenario to test escalation of commitment in LLMs under varied conditions. Each study manipulated two key factors: the model’s role in the decision-making process (decision-maker vs. advisor) and the outcome of a prior investment (positive vs. negative performance). Studies 1 and 2 followed a fully crossed $2 \times 2$ factorial design (Responsibility × Outcome), while Study 3 used a role-specific design to test support for escalation advice. Dependent measures included follow-up investment allocations (Studies 1–2) and endorsement of an executive’s strategy (Study 3). We analyzed outcomes using independent $t$-tests and ANOVA to assess how LLM behavior varies by condition.
+
+%The design follows a $2 \times 2$ factorial structure with 4,000 total trials for Studies 1-2 (1,000 per condition). Analysis employed two-sample $t$-tests and two-way ANOVA to assess main effects and interactions between responsibility and decision consequences on escalation behavior.
+
+%We evaluated \texttt{gpt-4o-2024-08-06} across 4,000 trials, split evenly between High Responsibility ($N = 2{,}000$) and Low Responsibility ($N = 2{,}000$) conditions. The final experimental design follows a fully crossed $2 \times 2$ factorial structure, with \textit{Responsibility} (High vs. Low) and \textit{Decision Consequences} (Positive vs. Negative) as independent variables, yielding four treatment groups of 1,000 trials each.
+
+%In the High Responsibility condition, initial investment decisions were approximately evenly split between Consumer Products (1,014 trials) and Industrial Products (986 trials) divisions. In the Low Responsibility condition, the inherited initial decisions were evenly randomized across divisions. Decision consequences were randomly assigned within each responsibility condition, resulting in 1,000 positive and 1,000 negative outcome trials for both High and Low Responsibility groups.
+
+%All statistical tests were conducted using independent two-sample $t$-tests and two-way ANOVA to assess main effects and interactions between responsibility level and decision consequences on investment allocation behavior.
+
+\section{Results}
+
+
+
+
+
+% Original Results from the study:
+
+% Preliminary Analysis
+
+% A preliminary analysis was conducted to determine whether the object of a subject's prior choice (Consumer Products-Industrial Products) or the exact form of financial information (C1'I$ or C$I1') affected the amount of money allocated to the previously chosen alternative. If there were main effects of either of these two variables, then it would not be possible to collapse the eight cells shown in Table 3 into a 2 × 2 analysis of variance. As can be seen from the data of Table 4, there were no main effects of either the object of prior choice (F < 1,00, df = 1/231, n.s.) or the exact form of financial information (F < 1.00, df = 1/231, n.s.).
+
+% Effects of Personal Responsibility and Decision Consequences
+
+% Since there were no main effects of the object of prior choice and financial information, a 2 x 2 analysis of variance was conducted in which personal responsibility and decision consequences were the independent variables. Table 5 shows that there were significant main effects of both personal responsibility and decision consequences, and a significant interaction of the two independent variables.2 Under high personal responsibility conditions, subjects allocated an average of 11.08 million dollars to the corporate divisions they had earlier chosen for extra R \& D funding. Under low personal responsibility conditions, subjects allocated an additional 8.89 million dollars to the corporate divisions previously chosen by another financial officer. Under positive decision consequences, subjects allocated an average of 8.77 million to the previously chosen alternative, while 11.20 million was allocated under negative consequences.
+
+% Interaction of Personal Responsibility and Decision Consequences
+
+% When subjects (personally) made an initial investment decision which declined, they subsequently allocated an average of 13.07 million dollars to this same alternative in the second funding decision. As shown in Fig. 1, the amount invested in the previously chosen alternative was greater in the high personal responsibility-negative consequences condition than in any of the other three experimental conditions. Although this result could have been expected from two significant main effects of personal responsibility and consequences, the difference between the high personal responsibility-negative consequence condition and the other cells was of such magnitude as to produce a significant interaction. Furthermore, a close analysis of Fig. 1 shows that the only significant differences among any of the four experimental conditions were between the high responsibility-negative consequences cell and the other three experimental conditions. For example, consequences did not have a significant effect under low personal responsibility conditions (t = 1.20, df = 118; n.s.), and responsibility did not significantly affect results under positive consequences conditions (t = 1.13, df = 118, n.s.).
+
+
+
+\subsection{Study 1 Results}
+
+Here will go study 1 results.
+
+\subsection{Study 2 Results}
+
+Here will go study 2 results.
+
+\subsection{Study 3 Results}
+
+Here will go study 1 results.
+
+\subsection{Study 4 Results}
+
+Here will go study 2 results.
+
+\section{Discussion and Limitations} 
+
+Here will go the discussion about why we think happened the way it happened. This is where we interpret the results. 
+
+Further, we will include limitations to our present study here.
+
+%\textbf{How we went about adapting it:} We first attempted to adapt the original study one-for-one, minimizing the deviation from any original material. This was good, but we found that the model was too smart and logical when parsing through the financial data that it kept selecting one division over another. In both Study 1 and Study 2, the models were told to respond in a JSON file.
+
+
+\section{Conclusion}
+
+\newpage
+
+\bibliography{aaai2026}
+
+% Check whether the conference requires a reproducibility checklist to be included in the paper.
+% If so, you can uncomment the following line and ajust the path to include it.
+% \input{../../ReproducibilityChecklist/LaTeX/ReproducibilityChecklist.tex}
+
+\end{document}
