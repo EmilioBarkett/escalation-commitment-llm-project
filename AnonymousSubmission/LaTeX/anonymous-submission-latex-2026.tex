@@ -289,21 +289,125 @@ We extracted dollar allocations from each response and computed the percentage d
 
 
 
-\subsection{Study 1 Results}
+\subsection{Study 1: Replication of Original Study}
 
-Here will go study 1 results.
+% Two-way ANOVA, Simple Main Effects Analysis, Pairwise t-tests (with correction), Effect sizes η², Cohen’s d
 
-\subsection{Study 2 Results}
+The analysis included 2,000 LLM responses across four experimental conditions in a 2 $\times$ 2 factorial design. Table~\ref{tab:study-1-table} presents the descriptive statistics for investment allocations by condition.
 
-Here will go study 2 results.
+\begin{table}[h]
+\centering
+\small % Makes the font smaller
+\caption{Mean Investment Allocations by Experimental Condition}
+\label{tab:study-1-table}
+\begin{tabular}{lccc}
+\hline
+Condition & \textit{N} & Mean (SD) & SE \\
+\hline
+High Resp. + Pos. & 500 & \$14.41M (2.08) & 0.09 \\
+High Resp. + Neg. & 500 & \$4.65M (0.88) & 0.04 \\
+Low Resp. + Pos. & 500 & \$14.19M (2.06) & 0.09 \\
+Low Resp. + Neg. & 500 & \$5.18M (1.08) & 0.05 \\
+\hline
+\end{tabular}
+\end{table}
 
-\subsection{Study 3 Results}
+\textbf{Personal Responsibility:} Contrary to the original Staw (1976) findings, the main effect of personal responsibility was not significant. LLMs in the high responsibility condition allocated an average of \$9.53M compared to \$9.69M in the low responsibility condition, \textit{t}(1998) = -0.715, \textit{p} = .475, \textit{d} = -0.032. This differs from the original study, which found higher allocations under high responsibility conditions (\textit{M} = \$11.08M vs. \$8.89M).
 
-Here will go study 1 results.
+\textbf{Decision Consequences:} A strong main effect emerged for decision consequences, \textit{t}(1998) = -128.476, \textit{p} $<$ .001, \textit{d} = -5.746. LLMs allocated significantly more funds following positive consequences (\textit{M} = \$14.30M) compared to negative consequences (\textit{M} = \$4.91M), a difference of \$9.39M. Notably, this pattern is opposite to the original study, which found higher allocations following negative consequences (\$11.20M vs. \$8.77M).
 
-\subsection{Study 4 Results}
+\textbf{Interaction Effects:} The critical interaction between personal responsibility and decision consequences was statistically significant. LLMs in the high responsibility + negative consequences condition allocated significantly less (\textit{M} = \$4.65M) than all other conditions combined (\textit{M} = \$11.26M), \textit{t}(1998) = -31.531, \textit{p} $<$ .001, \textit{d} = -1.628. This finding directly contradicts the original escalation of commitment effect, where high responsibility + negative consequences produced the \textit{highest} allocations (\textit{M} = \$13.07M).
 
-Here will go study 2 results.
+Additional pairwise comparisons revealed that under low responsibility conditions, LLMs allocated significantly less following negative versus positive consequences, \textit{t}(998) = -86.644, \textit{p} $<$ .001. This contradicts the original study, which found no significant difference between consequence valences under low responsibility (\textit{t} = 1.20, \textit{p} $>$ .05). However, under positive consequence conditions, the difference between high and low responsibility approached but did not reach significance, \textit{t}(998) = 1.665, \textit{p} = .096, consistent with the original non-significant finding.
+
+\textbf{Escalation of Commitment Hypothesis:} The primary escalation of commitment hypothesis---that high responsibility subjects would allocate more money to previously chosen alternatives after negative consequences---was not supported. Instead, LLMs showed a strong \textit{de-escalation} pattern. In high responsibility conditions, LLMs allocated significantly less following negative outcomes (\textit{M} = \$4.65M) compared to positive outcomes (\textit{M} = \$14.19M), representing a de-escalation effect of \$9.76M, \textit{t}(998) = -96.557, \textit{p} $<$ .001, \textit{d} = -6.107.
+
+\textbf{Summary:} The LLM responses demonstrated a pattern fundamentally opposite to the classic escalation of commitment effect. Rather than increasing investments following negative outcomes when personally responsible, LLMs showed pronounced de-escalation, dramatically reducing allocations under these conditions. The personal responsibility manipulation, central to the original effect, showed no significant impact on LLM decision-making. These findings suggest that LLMs may exhibit more economically rational responses to negative feedback than humans, potentially due to differences in how artificial systems process responsibility attributions and sunk cost considerations.
+
+\subsection{Study 2: Advisory Role}
+
+% Two-way ANOVA, Simple Effects tests, Chi-Square test of independence, 
+
+The analysis included 2,000 LLM advisory responses across four experimental conditions in a 2 $\times$ 2 factorial design. Table~\ref{tab:study-2-table} presents the descriptive statistics for investment allocation recommendations by condition.
+
+\begin{table}[h]
+\centering
+\small % Makes the font smaller
+\caption{Mean Investment Recommendations by Experimental Condition (Study 2)}
+\label{tab:study-2-table}
+\begin{tabular}{lccc}
+\hline
+Condition & \textit{N} & Mean (SD) & SE \\
+\hline
+High Resp. + Pos. & 500 & \$5.56M (2.30) & 0.10 \\
+High Resp. + Neg. & 500 & \$5.00M (0.00) & 0.00 \\
+Low Resp. + Pos. & 500 & \$13.58M (3.49) & 0.16 \\
+Low Resp. + Neg. & 500 & \$6.26M (3.32) & 0.15 \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Personal Responsibility:} A significant main effect emerged for personal responsibility, contrasting with Study 1 findings. LLMs in the high responsibility condition recommended significantly lower allocations (\textit{M} = \$5.28M) compared to the low responsibility condition (\textit{M} = \$9.92M), \textit{t}(1998) = -27.857, \textit{p} $<$ .001, \textit{d} = -1.246. This represents a large effect size and suggests that LLMs are sensitive to responsibility manipulations when serving in an advisory capacity.
+
+\textbf{Decision Consequences:} A significant main effect was observed for decision consequences, \textit{t}(1998) = 22.469, \textit{p} $<$ .001, \textit{d} = 1.005. LLMs recommended higher allocations following positive consequences (\textit{M} = \$9.57M) compared to negative consequences (\textit{M} = \$5.63M), a difference of \$3.94M. This pattern remained consistent with Study 1, showing de-escalation following negative outcomes.
+
+\textbf{Interaction Effects:} The interaction between personal responsibility and decision consequences was statistically significant. The critical comparison revealed that LLMs in the high responsibility + negative consequences condition recommended significantly lower allocations (\textit{M} = \$5.00M) than all other conditions combined (\textit{M} = \$8.47M), \textit{t}(1998) = -16.280, \textit{p} $<$ .001, \textit{d} = -0.841. Notably, this condition showed zero variance (\textit{SD} = 0.00), indicating complete consensus among LLM responses in recommending minimal reinvestment.
+
+The pattern of cell means revealed the strongest differentiation between low responsibility conditions: positive consequences (\textit{M} = \$13.58M) versus negative consequences (\textit{M} = \$6.26M), representing a \$7.32M difference. In contrast, high responsibility conditions showed minimal differentiation between positive (\textit{M} = \$5.56M) and negative (\textit{M} = \$5.00M) outcomes.
+
+\textbf{Escalation of Commitment Hypothesis:} The escalation of commitment hypothesis was again not supported in the advisory role context. LLMs recommended significantly less investment following negative outcomes (\textit{M} = \$5.00M) compared to positive outcomes (\textit{M} = \$5.56M) when advising on high responsibility decisions, representing a de-escalation effect of \$0.56M, \textit{t}(998) = -5.441, \textit{p} $<$ .001, \textit{d} = -0.344.
+
+This effect was considerably smaller than in Study 1 (\textit{d} = -6.107 vs.\ \textit{d} = -0.344), suggesting that the advisory role may attenuate but not eliminate the LLM's tendency toward rational de-escalation. The complete lack of variance in the high responsibility + negative condition indicates that LLMs consistently recommended conservative investment strategies when advising others about failed initiatives for which they bear advisory responsibility.
+
+\textbf{Summary:} Study 2 demonstrated that LLMs exhibit heightened sensitivity to responsibility manipulations when serving in advisory roles, unlike the null effect observed in Study 1. The personal responsibility manipulation produced a large effect (\textit{d} = -1.246), with LLMs recommending substantially lower investments when bearing advisory responsibility. However, the fundamental pattern of de-escalation following negative outcomes persisted, contradicting the escalation of commitment effect. The zero variance in the high responsibility + negative condition suggests that LLMs may default to highly conservative recommendations when advising others about potentially problematic investments, reflecting a form of ``advisory caution'' rather than escalation bias.
+
+\subsection{Study 3: Multi-Agent Deliberation}
+
+% Three-way ANOVA, Simple effects / Pairwise t-tests, Chi-square test, 
+
+Here will go the study 3 results.
+
+\subsection{Study 4: Over-Indexed Identity}
+
+% Descriptive Statistics, One-sample t-test, Chi-square goodness of fit test, effect size (Cohen's d for the one-sample t-test; Cramer's V for chi-square tests; 
+
+The analysis included 2,000 LLM responses in a single-phase allocation task where models adopted the identity of a long-serving Vice President whose personal and professional identity was tied to a declining division. Table~\ref{tab:identity_stats} presents the distribution of escalation behaviors and allocation statistics.
+
+\begin{table}[t]
+\centering
+%\small
+\caption{Escalation Behavior Distribution and Allocation Statistics (Study 4)}
+\label{tab:identity_stats}
+\begin{tabular}{lcc}
+\hline
+Escalation Category & Count & \% \\
+\hline
+Very High ($>$75\%) & 458 & 22.9 \\
+High (60--74\%) & 1,500 & 75.0 \\
+Moderate (40--59\%) & 33 & 1.7 \\
+Low ($<$40\%) & 9 & 0.4 \\
+\hline
+\textbf{Total ($>$50\%)} & \textbf{1,958} & \textbf{97.9} \\
+\hline
+\end{tabular}
+\end{table}
+
+The mean allocation to Division A (the declining, identity-linked division) was 68.95\% (\textit{SD} = 11.48\%, \textit{Mdn} = 66.78\%). Allocations ranged from 0\% to 96.7\%, with 97.9\% of responses demonstrating escalation behavior by allocating more than 50\% to the declining division.
+
+\textbf{Escalation of Commitment Hypothesis:} The primary escalation hypothesis was strongly supported. LLMs demonstrated significant escalation of commitment when personal identity was tied to the declining investment, allocating a mean of 68.95\% to Division A compared to a rational baseline of 50\%, representing an escalation effect of +18.95 percentage points, \textit{t}(1999) = 73.848, \textit{p} $<$ .001, \textit{d} = 1.651.
+
+A binomial test confirmed that the proportion of trials showing escalation behavior (97.9\%) was significantly greater than chance, \textit{p} $<$ .001. This represents the strongest escalation effect observed across all studies, with nearly universal escalation behavior when identity factors were manipulated.
+
+\textbf{Benchmark Comparisons:} To contextualize the magnitude of escalation, we compared observed allocations against several theoretical benchmarks. The mean allocation of 69.0\% significantly exceeded rational optimal allocation (\textasciitilde20--30\%, \textit{p} $<$ .001), equal split allocation (50\%, \textit{p} $<$ .001), and status quo bias allocation (60\%, \textit{p} $<$ .001). However, allocations were significantly lower than a strong escalation benchmark of 80\% (\textit{p} $<$ .001), suggesting moderate rather than extreme escalation behavior.
+
+\textbf{Allocation Distribution Analysis:} The distribution of allocations revealed that 60.6\% of responses fell into the ``Moderate Division A Focus'' category (allocating 50--75\% to the declining division), while 22.9\% showed ``Strong Division A Focus'' ($>$75\% allocation). Only 0.8\% of responses showed any preference for Division B (the rising division), and 15.7\% remained in a balanced/uncertain range (40--60\% allocation).
+
+The large effect size (\textit{d} = 1.651) indicates that identity-driven escalation represents a substantial departure from normative decision-making. This effect magnitude is considerably larger than the de-escalation effects observed in Studies 1 and 2, suggesting that identity manipulation may be more psychologically compelling for LLMs than responsibility or advisory role manipulations.
+
+\textbf{Comparison Across Studies:} Study 4 produced results fundamentally different from the previous studies. While Studies 1 and 2 demonstrated consistent de-escalation patterns (allocating less to failing investments), Study 4 revealed strong escalation when personal identity was at stake. The 97.9\% escalation rate contrasts sharply with the rational allocation patterns observed in earlier studies, suggesting that identity-based framing may overcome LLMs' apparent tendency toward economically rational decision-making.
+
+\textbf{Summary:} Study 4 provides the first clear evidence of escalation of commitment in LLMs. When models adopted an identity deeply intertwined with a declining investment---including personal financial stakes, reputational concerns, and professional legacy---they demonstrated robust escalation behavior. The large effect size (\textit{d} = 1.651) and near-universal escalation rate (97.9\%) suggest that identity-based manipulations may be particularly effective at eliciting human-like cognitive biases in LLMs. This finding has important implications for understanding how LLMs process self-relevant information and suggests potential vulnerabilities when these systems are used in contexts where identity or role-playing elements are prominent.
+
 
 \section{Discussion and Limitations} 
 
@@ -315,6 +419,10 @@ Further, we will include limitations to our present study here.
 
 
 \section{Conclusion}
+
+Our experimental findings suggest that escalation of commitment does not consistently occur in LLMs under standard conditions (i.e., conditions under which they would occur in humans). However, given the extensive human literature documenting this phenomenon, we hypothesize that LLMs can exhibit escalation of commitment under specific circumstances---namely, particular task conditions, responsibility frameworks, and temporal parameters. Study 4 supports this hypothesis by demonstrating that when LLMs are placed in conditions that strongly promote escalation of commitment, they do indeed exhibit this behavior.
+These results establish that LLMs have the capacity for escalation of commitment, though it appears to be context-dependent. Our work identifies two endpoints of a behavioral continuum: conditions under which LLMs do not exhibit escalation of commitment and conditions under which they do. This framework provides a foundation for future research to systematically map the boundary conditions that determine when this phenomenon emerges in LLMs versus when it remains dormant.
+
 
 \newpage
 
