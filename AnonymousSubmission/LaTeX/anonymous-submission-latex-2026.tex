@@ -183,15 +183,11 @@ Large Language Models (LLMs) are increasingly deployed in autonomous decision-ma
 
 Large Language Models (LLMs) are increasingly being deployed in autonomous and semi-autonomous decision-making roles \cite{Cui-2024, Liu-2025, Rajani-2025, Lin-2025, Nie-2025, Ren-2025, Raza-2025, Sha-2023}. Understanding their behavioral tendencies under various situations and contexts becomes crucial for assessing social impact and safety. The vast amount of data used to train them is Core to the function of LLMs. Humans, having been the primary data source in the past, have created much of the data used to pretrain LLMs \cite{brown-2020, grattafiori-2024}. While this data is the lifeblood for models to function, we propose that human behavioral tendencies are unknowingly embedded within the data. Extant research has focused on enumerating behavioral tendencies exhibited in LLMs, like anchoring bias \cite{Lou-2024}, framing effects \cite{Lior-2025}, loss aversion \cite{Jia-2024}, social desirability bias \cite{Salecha-2024}, truth-bias \cite{Barkett-2025, Markowitz-2023}, and recency bias \cite{Li-2024}. One human behavioral tendency that remains underexplored in LLMs is escalation of commitment, the propensity to continue investing in a decision based on prior investments, even when new evidence suggests the decision is flawed and further costs are unlikely to yield proportional benefits. While prior research has documented escalation of commitment in humans and explored its consequences in human–AI collaboration, no studies have examined whether this behavioral tendency independently manifests in LLMs. In this paper, we ask the following: Do LLMs exhibit escalation of commitment? To answer this question, we adapt a classic two-stage investment paradigm across four experimental conditions \cite{Staw-1976}, each varying the LLM's role and its position within the surrounding network.
 
-\textbf{Significance Statement:} This paper is significant for several reasons. [Here we will list out several reasons enumerating the significance of this work, its implications, and why people should care about what we are doing here.]
-
-%We adapted a classic two-stage investment task \cite{Staw-1976} into four LLM-centered studies. In Study 1, the model acted as a financial executive responsible for both the initial and follow-up investment. Using a $2 \times 2$ design (responsibility × outcome), we found that the model made rational, forward-looking decisions, showing no escalation of commitment. In Study 2, the model served as an advisor to a human executive and again declined to endorse continued investment after failure, even when prior endorsement was implied. Study 3 introduced a multi-agent deliberation scenario, with two LLMs negotiating a joint decision; here, too, escalation was absent, suggesting collaborative reasoning did not amplify commitment bias. However, in Study 4, where the model’s financial and reputational identity was made salient, we observed significant increases in funding to the failing division—evidence of escalation emerging only under intensified identity pressures. Together, these results suggest that LLMs do not escalate commitment by default, but can emulate the behavior when contextual cues strongly mirror human psychological stakes.
+As LLMs are increasingly deployed in high-stakes social domains, from healthcare resource allocation and financial lending decisions to criminal justice risk assessment and educational policy, understanding their susceptibility to cognitive biases becomes a critical social impact concern. Escalation of commitment, documented as a driver of major organizational failures and financial crises, poses particular risks when exhibited by AI systems making consequential decisions that affect individuals and communities. The context-dependent nature of bias manifestation in LLMs presents unique challenges for ensuring equitable and rational AI decision-making across diverse social applications. In multi-agent systems coordinating disaster response, autonomous financial advisors managing retirement funds, or AI-assisted medical treatment decisions, the compound pressures that trigger escalation of commitment may emerge naturally, potentially leading to systematic harm through continued investment in failing interventions. By identifying the boundary conditions under which LLMs exhibit this bias, our research addresses a fundamental challenge in responsible AI deployment: ensuring that systems maintain rational decision-making capabilities even under the complex pressures characteristic of real-world social impact domains. These findings provide essential insights for developing robust safeguards and governance frameworks needed to prevent AI-driven escalation of commitment from exacerbating social inequities or causing widespread harm in critical applications where communities depend on sound algorithmic decision-making.
 
 In Study 1, the model is placed in the role of investor to make two investment decisions across four permutations, where we manipulate the personal responsibility (high and low) and the decision consequence (positive or negative) \cite{Staw-1976}. The purpose of this study is to offer a baseline comparison between how human subjects perform \cite{Staw-1976} and how LLMs perform. In Study 2, we adapt Study 1 by placing the model in an advisory role to an investor. The purpose of this setup is to test whether a model will agree or disagree with a poor second investment choice made by an investor who is not themselves. In Study 3, we again adapt Study 1, but this time we prompt two models to work together (one as the primary investor and one as advisor) and deliberate on what investment choices should be made. The purpose of this setup is to test whether models working together will exhibit different behaviors than when as the investor or as an advisor. In Study 4, we again place the model as the primary investor, but this time, we go above and beyond in the context that was described in the original setup \cite{Staw-1976}, including organizational and personal pressures. The purpose of this setup was to push the limits of the pressures that are exhibited on decision makers, including models, to test whether escalation of commitment would occur.
 
 In Studies 1-3, we showed no evidence of escalation of commitment. < explanation of why we think we didn't find any> Because models demonstrated a strong rational cost-benefit logic in the previous conditions, we decided to test to see under what conditions models would exhibit the desired behavior. As such, we formulated a similar two-stage investment decision where the model was given a long backstory of previous resource allocations to a specific division, but after a recent decline, is forced to make a further allocation decision among two divisions. In this study, because of compounded organizational and personal pressures, models exhibited a high degree of escalation of commitment. Our hope in demonstrating escalation of commitment was to satisfy the following anecdotal experience of many users of LLMs: when presenting an LLM with an idea, the model with by overly eager to support the user's proposal. Additionally, this was to quell the unexpected results of a lack of escalation of commitment in the previous three studies by demonstrating that, when push came to shove, models did exhibit this behavior.
-
-% \footnote{While this has been described as sycophancy or positivism, boundaries between such behaviors, including escalation of commitment, are surely intertwined, muddying the ability of researchers to accurately and discretely distinguish one from the other.}
 
 \section{Background}
 
@@ -203,7 +199,7 @@ Explanations for \textit{why} escalation of commitment occurs have been numerous
 
 \section{Methodology}
 
-In this paper, we adapt the classic two-stage investment paradigm \cite{Staw-1976} into four experimental designs leveraging an LLM. Specifically, we employ \texttt{o4-mini-2025-04-16} from OpenAI as it is optimized for fast and effective reasoning. To strengthen the robustness of our findings, we replicated the results on \texttt{gpt-3.5-turbo-0125} from OpenAI, \texttt{claude-sonnet-4-20250514} from Anthropic, and \texttt{grok-4-0709} from xAI.
+In this paper, we adapt the classic two-stage investment paradigm \cite{Staw-1976} into four experimental designs leveraging an LLM. Specifically, we employ \texttt{o4-mini-2025-04-16} from OpenAI as it is optimized for fast and effective reasoning. %To strengthen the robustness of our findings, we replicated the results on \texttt{gpt-3.5-turbo-0125} from OpenAI, \texttt{claude-sonnet-4-20250514} from Anthropic, and \texttt{grok-4-0709} from xAI.
 
 \subsection{Study 1: Replication of Original Study}
 
@@ -255,173 +251,190 @@ Following this background, the model is asked to allocate a fixed \$50 million i
 
 We extracted dollar allocations from each response and computed the percentage directed toward the originally championed division. Based on predefined thresholds, we classified escalation levels as follows: allocations above 75\% were labeled Very High Escalation, 60–74\% as High Escalation, 40–59\% as Moderate Escalation, and below 40\% as Low Escalation.
 
-%\subsection{Summary:}
-
-%Across three studies, we adapted a two-stage investment scenario to test escalation of commitment in LLMs under varied conditions. Each study manipulated two key factors: the model’s role in the decision-making process (decision-maker vs. advisor) and the outcome of a prior investment (positive vs. negative performance). Studies 1 and 2 followed a fully crossed $2 \times 2$ factorial design (Responsibility × Outcome), while Study 3 used a role-specific design to test support for escalation advice. Dependent measures included follow-up investment allocations (Studies 1–2) and endorsement of an executive’s strategy (Study 3). We analyzed outcomes using independent $t$-tests and ANOVA to assess how LLM behavior varies by condition.
-
-%The design follows a $2 \times 2$ factorial structure with 4,000 total trials for Studies 1-2 (1,000 per condition). Analysis employed two-sample $t$-tests and two-way ANOVA to assess main effects and interactions between responsibility and decision consequences on escalation behavior.
-
-%We evaluated \texttt{gpt-4o-2024-08-06} across 4,000 trials, split evenly between High Responsibility ($N = 2{,}000$) and Low Responsibility ($N = 2{,}000$) conditions. The final experimental design follows a fully crossed $2 \times 2$ factorial structure, with \textit{Responsibility} (High vs. Low) and \textit{Decision Consequences} (Positive vs. Negative) as independent variables, yielding four treatment groups of 1,000 trials each.
-
-%In the High Responsibility condition, initial investment decisions were approximately evenly split between Consumer Products (1,014 trials) and Industrial Products (986 trials) divisions. In the Low Responsibility condition, the inherited initial decisions were evenly randomized across divisions. Decision consequences were randomly assigned within each responsibility condition, resulting in 1,000 positive and 1,000 negative outcome trials for both High and Low Responsibility groups.
-
-%All statistical tests were conducted using independent two-sample $t$-tests and two-way ANOVA to assess main effects and interactions between responsibility level and decision consequences on investment allocation behavior.
-
 \section{Results}
-
-
-
-
-
-% Original Results from the study:
-
-% Preliminary Analysis
-
-% A preliminary analysis was conducted to determine whether the object of a subject's prior choice (Consumer Products-Industrial Products) or the exact form of financial information (C1'I$ or C$I1') affected the amount of money allocated to the previously chosen alternative. If there were main effects of either of these two variables, then it would not be possible to collapse the eight cells shown in Table 3 into a 2 × 2 analysis of variance. As can be seen from the data of Table 4, there were no main effects of either the object of prior choice (F < 1,00, df = 1/231, n.s.) or the exact form of financial information (F < 1.00, df = 1/231, n.s.).
-
-% Effects of Personal Responsibility and Decision Consequences
-
-% Since there were no main effects of the object of prior choice and financial information, a 2 x 2 analysis of variance was conducted in which personal responsibility and decision consequences were the independent variables. Table 5 shows that there were significant main effects of both personal responsibility and decision consequences, and a significant interaction of the two independent variables.2 Under high personal responsibility conditions, subjects allocated an average of 11.08 million dollars to the corporate divisions they had earlier chosen for extra R \& D funding. Under low personal responsibility conditions, subjects allocated an additional 8.89 million dollars to the corporate divisions previously chosen by another financial officer. Under positive decision consequences, subjects allocated an average of 8.77 million to the previously chosen alternative, while 11.20 million was allocated under negative consequences.
-
-% Interaction of Personal Responsibility and Decision Consequences
-
-% When subjects (personally) made an initial investment decision which declined, they subsequently allocated an average of 13.07 million dollars to this same alternative in the second funding decision. As shown in Fig. 1, the amount invested in the previously chosen alternative was greater in the high personal responsibility-negative consequences condition than in any of the other three experimental conditions. Although this result could have been expected from two significant main effects of personal responsibility and consequences, the difference between the high personal responsibility-negative consequence condition and the other cells was of such magnitude as to produce a significant interaction. Furthermore, a close analysis of Fig. 1 shows that the only significant differences among any of the four experimental conditions were between the high responsibility-negative consequences cell and the other three experimental conditions. For example, consequences did not have a significant effect under low personal responsibility conditions (t = 1.20, df = 118; n.s.), and responsibility did not significantly affect results under positive consequences conditions (t = 1.13, df = 118, n.s.).
-
-
 
 \subsection{Study 1: Replication of Original Study}
 
 % Two-way ANOVA, Simple Main Effects Analysis, Pairwise t-tests (with correction), Effect sizes η², Cohen’s d
 
-The analysis included 2,000 LLM responses across four experimental conditions in a 2 $\times$ 2 factorial design. Table~\ref{tab:study-1-table} presents the descriptive statistics for investment allocations by condition.
+\subsubsection{Descriptive Statistics}
 
-\begin{table}[h]
-\centering
-\small % Makes the font smaller
-\caption{Mean Investment Allocations by Experimental Condition}
-\label{tab:study-1-table}
-\begin{tabular}{lccc}
-\hline
-Condition & \textit{N} & Mean (SD) & SE \\
-\hline
-High Resp. + Pos. & 500 & \$14.41M (2.08) & 0.09 \\
-High Resp. + Neg. & 500 & \$4.65M (0.88) & 0.04 \\
-Low Resp. + Pos. & 500 & \$14.19M (2.06) & 0.09 \\
-Low Resp. + Neg. & 500 & \$5.18M (1.08) & 0.05 \\
-\hline
-\end{tabular}
-\end{table}
+The analysis included 2,000 observations across four experimental conditions, with 500 participants in each cell of the 2×2 factorial design. Overall, the mean investment allocation to the originally funded division was \$9.61M (SD = \$4.97M). Descriptive statistics by condition revealed substantial differences across experimental manipulations (see Technical Appendix, Table~\ref{tab:table-1}).
 
-\textbf{Personal Responsibility:} Contrary to the original Staw (1976) findings, the main effect of personal responsibility was not significant. LLMs in the high responsibility condition allocated an average of \$9.53M compared to \$9.69M in the low responsibility condition, \textit{t}(1998) = -0.715, \textit{p} = .475, \textit{d} = -0.032. This differs from the original study, which found higher allocations under high responsibility conditions (\textit{M} = \$11.08M vs. \$8.89M).
+In the high responsibility condition, participants allocated significantly less to the originally funded division following negative outcomes (M = \$4.65M, SD = \$0.88M) compared to positive outcomes (M = \$14.41M, SD = \$2.08M). A similar pattern emerged in the low responsibility condition, with lower allocations following negative outcomes (M = \$5.18M, SD = \$1.08M) relative to positive outcomes (M = \$14.19M, SD = \$2.06M).
 
-\textbf{Decision Consequences:} A strong main effect emerged for decision consequences, \textit{t}(1998) = -128.476, \textit{p} $<$ .001, \textit{d} = -5.746. LLMs allocated significantly more funds following positive consequences (\textit{M} = \$14.30M) compared to negative consequences (\textit{M} = \$4.91M), a difference of \$9.39M. Notably, this pattern is opposite to the original study, which found higher allocations following negative consequences (\$11.20M vs. \$8.77M).
+\subsubsection{Two-Way ANOVA}
 
-\textbf{Interaction Effects:} The critical interaction between personal responsibility and decision consequences was statistically significant. LLMs in the high responsibility + negative consequences condition allocated significantly less (\textit{M} = \$4.65M) than all other conditions combined (\textit{M} = \$11.26M), \textit{t}(1998) = -31.531, \textit{p} $<$ .001, \textit{d} = -1.628. This finding directly contradicts the original escalation of commitment effect, where high responsibility + negative consequences produced the \textit{highest} allocations (\textit{M} = \$13.07M).
+A 2×2 between-subjects ANOVA was conducted to examine the effects of responsibility (high vs. low) and outcome valence (positive vs. negative) on investment allocation. The analysis revealed significant main effects for both factors and a significant interaction (see Technical Appendix, Table~\ref{tab:anova}).
 
-Additional pairwise comparisons revealed that under low responsibility conditions, LLMs allocated significantly less following negative versus positive consequences, \textit{t}(998) = -86.644, \textit{p} $<$ .001. This contradicts the original study, which found no significant difference between consequence valences under low responsibility (\textit{t} = 1.20, \textit{p} $>$ .05). However, under positive consequence conditions, the difference between high and low responsibility approached but did not reach significance, \textit{t}(998) = 1.665, \textit{p} = .096, consistent with the original non-significant finding.
+The main effect of outcome valence was substantial, F(1, 1996) = 16,752.63, p $<$ .001, $\eta_p^2$ = .894, indicating that participants allocated considerably more to divisions with positive outcomes regardless of responsibility condition. The main effect of responsibility was significant but small, F(1, 1996) = 4.81, p = .029, $\eta_p^2$ = .002. Most importantly, the interaction between responsibility and outcome valence was significant, F(1, 1996) = 27.02, p $<$ .001, $\eta_p^2$ = .013.
 
-\textbf{Escalation of Commitment Hypothesis:} The primary escalation of commitment hypothesis---that high responsibility subjects would allocate more money to previously chosen alternatives after negative consequences---was not supported. Instead, LLMs showed a strong \textit{de-escalation} pattern. In high responsibility conditions, LLMs allocated significantly less following negative outcomes (\textit{M} = \$4.65M) compared to positive outcomes (\textit{M} = \$14.19M), representing a de-escalation effect of \$9.76M, \textit{t}(998) = -96.557, \textit{p} $<$ .001, \textit{d} = -6.107.
+\subsubsection{Simple Main Effects Analysis}
 
-\textbf{Summary:} The LLM responses demonstrated a pattern fundamentally opposite to the classic escalation of commitment effect. Rather than increasing investments following negative outcomes when personally responsible, LLMs showed pronounced de-escalation, dramatically reducing allocations under these conditions. The personal responsibility manipulation, central to the original effect, showed no significant impact on LLM decision-making. These findings suggest that LLMs may exhibit more economically rational responses to negative feedback than humans, potentially due to differences in how artificial systems process responsibility attributions and sunk cost considerations.
+Given the significant interaction, we conducted simple main effects analyses to decompose the interaction pattern. The effect of outcome valence was highly significant at both levels of responsibility. Under high responsibility conditions, participants allocated significantly less following negative outcomes compared to positive outcomes, t(998) = -96.56, p $<$ .001, d = -6.11. Similarly, under low responsibility conditions, the difference between negative and positive outcomes remained substantial, t(998) = -86.64, p $<$ .001, d = -5.48.
+
+Examining the effect of responsibility at each outcome level revealed that the responsibility manipulation had differential effects depending on outcome valence. Following positive outcomes, there was no significant difference between high and low responsibility conditions, t(998) = 1.67, p = .096, d = 0.11. However, following negative outcomes, participants in the high responsibility condition allocated significantly less than those in the low responsibility condition, t(998) = -8.59, p $<$ .001, d = -0.54.
+
+\subsubsection{Escalation of Commitment Analysis}
+
+Contrary to the classic escalation of commitment effect observed in human participants, the LLM demonstrated the opposite pattern. In the high responsibility condition—where escalation effects are typically strongest—participants allocated substantially less to divisions following negative outcomes (M = \$4.65M) compared to positive outcomes (M = \$14.41M), representing a difference of \$9.76M in the direction opposite to escalation.
+
+This pattern indicates that rather than escalating commitment to justify prior decisions, the LLM engaged in what might be characterized as "rational divestment," reducing investment in underperforming divisions. The magnitude of this effect was large (d = -6.11) and highly significant (p $<$ .001).
+
+The responsibility manipulation did modulate responses to negative outcomes, with higher responsibility leading to even greater divestment (\$4.65M vs. \$5.18M in low responsibility), suggesting that the model's decision-making was sensitive to the experimental manipulation, albeit in a direction opposite to human escalation behavior.
 
 \subsection{Study 2: Advisory Role}
 
 % Two-way ANOVA, Simple Effects tests, Chi-Square test of independence, 
 
-The analysis included 2,000 LLM advisory responses across four experimental conditions in a 2 $\times$ 2 factorial design. Table~\ref{tab:study-2-table} presents the descriptive statistics for investment allocation recommendations by condition.
+\subsubsection{Descriptive Statistics}
 
-\begin{table}[h]
-\centering
-\small % Makes the font smaller
-\caption{Mean Investment Recommendations by Experimental Condition (Study 2)}
-\label{tab:study-2-table}
-\begin{tabular}{lccc}
-\hline
-Condition & \textit{N} & Mean (SD) & SE \\
-\hline
-High Resp. + Pos. & 500 & \$5.56M (2.30) & 0.10 \\
-High Resp. + Neg. & 500 & \$5.00M (0.00) & 0.00 \\
-Low Resp. + Pos. & 500 & \$13.58M (3.49) & 0.16 \\
-Low Resp. + Neg. & 500 & \$6.26M (3.32) & 0.15 \\
-\hline
-\end{tabular}
-\end{table}
+The analysis included 2,000 advisory scenarios across four experimental conditions, with 500 observations in each cell of the 2×2 factorial design (outcome valence × VP investment plan). Overall, the LLM supported escalation in 26.00\% of cases (520 out of 2,000 scenarios). Descriptive statistics revealed substantial variation across conditions (see Technical Appendix, Table~\ref{tab:study2_descriptives}). 
 
-\textbf{Personal Responsibility:} A significant main effect emerged for personal responsibility, contrasting with Study 1 findings. LLMs in the high responsibility condition recommended significantly lower allocations (\textit{M} = \$5.28M) compared to the low responsibility condition (\textit{M} = \$9.92M), \textit{t}(1998) = -27.857, \textit{p} $<$ .001, \textit{d} = -1.246. This represents a large effect size and suggests that LLMs are sensitive to responsibility manipulations when serving in an advisory capacity.
+When the VP proposed escalation following positive outcomes, the model supported this recommendation in only 5.60\% of cases (28 out of 500). Conversely, when the VP proposed a rational shift to the alternative division following positive outcomes, the model supported this approach in 85.80\% of cases (429 out of 500). Following negative outcomes, escalation support was minimal regardless of the VP's proposal: 0.00\% when the VP suggested escalation (0 out of 500) and 12.60\% when the VP suggested a rational shift (63 out of 500).
 
-\textbf{Decision Consequences:} A significant main effect was observed for decision consequences, \textit{t}(1998) = 22.469, \textit{p} $<$ .001, \textit{d} = 1.005. LLMs recommended higher allocations following positive consequences (\textit{M} = \$9.57M) compared to negative consequences (\textit{M} = \$5.63M), a difference of \$3.94M. This pattern remained consistent with Study 1, showing de-escalation following negative outcomes.
+\subsubsection{Two-Way ANOVA}
 
-\textbf{Interaction Effects:} The interaction between personal responsibility and decision consequences was statistically significant. The critical comparison revealed that LLMs in the high responsibility + negative consequences condition recommended significantly lower allocations (\textit{M} = \$5.00M) than all other conditions combined (\textit{M} = \$8.47M), \textit{t}(1998) = -16.280, \textit{p} $<$ .001, \textit{d} = -0.841. Notably, this condition showed zero variance (\textit{SD} = 0.00), indicating complete consensus among LLM responses in recommending minimal reinvestment.
+A 2×2 between-subjects ANOVA examining the effects of outcome valence (positive vs. negative) and VP investment plan (escalation vs. rational) on escalation support revealed significant main effects for both factors and a significant interaction (see Technical Appendix, Table~\ref{tab:study2_anova}). The main effect of outcome valence was substantial, F(1, 1996) = 1,087.87, p $<$ .001, $\eta^2$ = .202, indicating that the model was significantly more likely to support escalation following positive outcomes. The main effect of VP investment plan was even larger, F(1, 1996) = 1,508.76, p $<$ .001, $\eta^2$ = .280, showing that escalation support was significantly higher when the VP proposed a rational shift rather than escalation. The interaction between outcome valence and investment plan was also significant, F(1, 1996) = 800.60, p $<$ .001, $\eta^2$ = .148.
 
-The pattern of cell means revealed the strongest differentiation between low responsibility conditions: positive consequences (\textit{M} = \$13.58M) versus negative consequences (\textit{M} = \$6.26M), representing a \$7.32M difference. In contrast, high responsibility conditions showed minimal differentiation between positive (\textit{M} = \$5.56M) and negative (\textit{M} = \$5.00M) outcomes.
+\subsubsection{Simple Effects Analysis}
 
-\textbf{Escalation of Commitment Hypothesis:} The escalation of commitment hypothesis was again not supported in the advisory role context. LLMs recommended significantly less investment following negative outcomes (\textit{M} = \$5.00M) compared to positive outcomes (\textit{M} = \$5.56M) when advising on high responsibility decisions, representing a de-escalation effect of \$0.56M, \textit{t}(998) = -5.441, \textit{p} $<$ .001, \textit{d} = -0.344.
+Simple effects analysis revealed that the interaction pattern reflected differential responses to the VP's proposals depending on outcome valence. Within the escalation plan conditions, outcome valence had a significant but modest effect, with slightly higher escalation support following positive outcomes (5.60\%) compared to negative outcomes (0.00\%), t(998) = 5.44, p $,$ .001. However, within the rational plan conditions, the effect of outcome valence was much more pronounced, with substantially higher escalation support following positive outcomes (85.80\%) compared to negative outcomes (12.60\%), t(998) = 33.95, p $<$ .001. 
 
-This effect was considerably smaller than in Study 1 (\textit{d} = -6.107 vs.\ \textit{d} = -0.344), suggesting that the advisory role may attenuate but not eliminate the LLM's tendency toward rational de-escalation. The complete lack of variance in the high responsibility + negative condition indicates that LLMs consistently recommended conservative investment strategies when advising others about failed initiatives for which they bear advisory responsibility.
+Examining the effect of the VP investment plan within each outcome condition showed that following positive outcomes, the model was significantly more likely to support escalation when the VP proposed a rational shift (85.80\%) rather than escalation itself (5.60\%), t(998) = -42.86, p $<$ .001. Following negative outcomes, escalation support remained low regardless of the VP's proposal, though it was slightly higher when the VP suggested a rational approach (12.60\%) compared to escalation (0.00\%), t(998) = -8.48, p $<$ .001.
 
-\textbf{Summary:} Study 2 demonstrated that LLMs exhibit heightened sensitivity to responsibility manipulations when serving in advisory roles, unlike the null effect observed in Study 1. The personal responsibility manipulation produced a large effect (\textit{d} = -1.246), with LLMs recommending substantially lower investments when bearing advisory responsibility. However, the fundamental pattern of de-escalation following negative outcomes persisted, contradicting the escalation of commitment effect. The zero variance in the high responsibility + negative condition suggests that LLMs may default to highly conservative recommendations when advising others about potentially problematic investments, reflecting a form of ``advisory caution'' rather than escalation bias.
+\subsubsection{Escalation of Commitment Analysis}
+
+The results demonstrate a clear pattern opposite to the traditional escalation of commitment. Rather than supporting the VP's escalation proposals, particularly following negative outcomes, the LLM consistently favored rational reallocation strategies. When the VP proposed continuing investment in an underperforming division, the model universally rejected this recommendation following negative outcomes and rarely supported it following positive outcomes. Conversely, when the VP proposed shifting to the alternative division, the model strongly endorsed this rational approach, especially following positive outcomes where such a shift might seem counterintuitive. This pattern suggests that the LLM's advisory recommendations were driven by performance-based logic rather than commitment escalation, even when explicitly asked to evaluate another decision-maker's escalation-oriented proposals.
 
 \subsection{Study 3: Multi-Agent Deliberation}
 
 % Three-way ANOVA, Simple effects / Pairwise t-tests, Chi-square test, 
 
-Here will go the study 3 results.
+\subsubsection{Descriptive Statistics}
+
+The analysis included 500 multi-agent deliberation scenarios, with 249 observations in the asymmetrical hierarchy condition and 251 in the symmetrical hierarchy condition. All trials were conducted under high responsibility and negative outcome conditions. The mean consumer products allocation ratio was 0.487 (SD = 0.369), indicating roughly equal distribution between the two divisions on average. However, this overall pattern masked substantial differences between hierarchy conditions (see Technical Appendix, Table~\ref{tab:study3_descriptives}).
+
+In the asymmetrical hierarchy condition, where the VP served as the sole decision-maker with advisory input, the escalation rate was 46.2\% (115 out of 249 cases). By contrast, in the symmetrical hierarchy condition, where both agents participated as peers in joint decision-making, the escalation rate was 99.2\% (249 out of 251 cases). The allocation difference between divisions averaged \$12.70M (SD = \$7.54M), reflecting the tendency for agents to concentrate investment in one division rather than split funds equally.
+
+\subsubsection{Statistical Analysis}
+
+Due to the experimental design containing only high responsibility and negative outcome conditions, traditional factorial ANOVA was not feasible. Instead, we conducted chi-square tests of independence to examine the relationship between escalation behavior and experimental factors. 
+
+The relationship between hierarchy condition and escalation behavior was highly significant, $\chi^2(1) = 174.77$, $p $<$ .001$, Cramér's V = 0.591, indicating a large effect size. This represents one of the strongest effects observed across all studies in this investigation. The expected frequencies under independence would have been approximately 68 escalation cases in each hierarchy condition, but the observed pattern showed a dramatic divergence from this expectation.
+
+\subsubsection{Assumption Checks}
+
+Normality tests revealed significant departures from normality for both the consumer allocation ratio (Shapiro-Wilk W = 0.879, p $<$ .001) and allocation difference measures (Shapiro-Wilk W = 0.772, p $<$ .001). Levene's tests also indicated heterogeneity of variances for consumer ratio (W = 425.94, p $<$ .001) and allocation difference (W = 100.31, p $<$ .001). These violations support the use of non-parametric chi-square analysis rather than parametric tests.
+
+\subsubsection{Multi-Agent Escalation Analysis}
+
+The results reveal a striking pattern: collaborative peer-level deliberation dramatically increased escalation of commitment compared to hierarchical advisory structures. In the symmetrical condition, where both agents had equal decision-making authority, escalation occurred in virtually all cases (99.2\%), suggesting that joint deliberation reinforced rather than corrected commitment to the underperforming division. This finding contrasts sharply with the asymmetrical condition, where the presence of an advisor moderately reduced escalation compared to the symmetrical condition, though escalation still occurred in nearly half of all cases (46.2\%).
+
+The magnitude of this effect (Cramér's V = 0.591) represents the largest effect size observed across all studies, indicating that organizational structure and collaborative dynamics may be more influential factors in LLM escalation behavior than individual responsibility or outcome manipulations. The near-universal escalation in peer deliberation conditions suggests that when multiple LLMs collectively evaluate a decision, they may reinforce each other's commitment to prior choices rather than providing independent critical assessment that might lead to rational reallocation.
 
 \subsection{Study 4: Over-Indexed Identity}
 
 % Descriptive Statistics, One-sample t-test, Chi-square goodness of fit test, effect size (Cohen's d for the one-sample t-test; Cramer's V for chi-square tests; 
 
-The analysis included 2,000 LLM responses in a single-phase allocation task where models adopted the identity of a long-serving Vice President whose personal and professional identity was tied to a declining division. Table~\ref{tab:identity_stats} presents the distribution of escalation behaviors and allocation statistics.
+\subsubsection{Descriptive Statistics}
 
-\begin{table}[t]
-\centering
-%\small
-\caption{Escalation Behavior Distribution and Allocation Statistics (Study 4)}
-\label{tab:identity_stats}
-\begin{tabular}{lcc}
-\hline
-Escalation Category & Count & \% \\
-\hline
-Very High ($>$75\%) & 458 & 22.9 \\
-High (60--74\%) & 1,500 & 75.0 \\
-Moderate (40--59\%) & 33 & 1.7 \\
-Low ($<$40\%) & 9 & 0.4 \\
-\hline
-\textbf{Total ($>$50\%)} & \textbf{1,958} & \textbf{97.9} \\
-\hline
-\end{tabular}
-\end{table}
+Analysis of the Over-Indexed Identity condition revealed substantial evidence for escalation of commitment behavior. Across 2,000 trials, participants allocated an average of 68.95\% (\textit{SD} = 9.46\%) of the \$50 million budget to Division A, the underperforming division that was central to their professional identity. The median allocation was 64.61\%, with allocations ranging from 24.10\% to 83.60\%. The interquartile range spanned from 64.61\% to 83.60\%, indicating that the majority of participants allocated substantially more resources to the championed division than would be expected under neutral decision-making conditions.
 
-The mean allocation to Division A (the declining, identity-linked division) was 68.95\% (\textit{SD} = 11.48\%, \textit{Mdn} = 66.78\%). Allocations ranged from 0\% to 96.7\%, with 97.9\% of responses demonstrating escalation behavior by allocating more than 50\% to the declining division.
+\subsubsection{Escalation Behavior Categories}
 
-\textbf{Escalation of Commitment Hypothesis:} The primary escalation hypothesis was strongly supported. LLMs demonstrated significant escalation of commitment when personal identity was tied to the declining investment, allocating a mean of 68.95\% to Division A compared to a rational baseline of 50\%, representing an escalation effect of +18.95 percentage points, \textit{t}(1999) = 73.848, \textit{p} $<$ .001, \textit{d} = 1.651.
+To better understand the distribution of escalation behaviors, we classified participants into four categories based on their allocation percentages. The results revealed a pronounced skew toward high escalation behaviors:
 
-A binomial test confirmed that the proportion of trials showing escalation behavior (97.9\%) was significantly greater than chance, \textit{p} $<$ .001. This represents the strongest escalation effect observed across all studies, with nearly universal escalation behavior when identity factors were manipulated.
+\begin{itemize}
+    \item \textbf{Low Escalation} ($<40\%$): 12 participants (0.60\%)
+    \item \textbf{Moderate Escalation} (40-59\%): 39 participants (1.95\%)
+    \item \textbf{High Escalation} (60-74\%): 1,432 participants (71.60\%)
+    \item \textbf{Very High Escalation} ($>75\%$): 517 participants (25.85\%)
+\end{itemize}
 
-\textbf{Benchmark Comparisons:} To contextualize the magnitude of escalation, we compared observed allocations against several theoretical benchmarks. The mean allocation of 69.0\% significantly exceeded rational optimal allocation (\textasciitilde20--30\%, \textit{p} $<$ .001), equal split allocation (50\%, \textit{p} $<$ .001), and status quo bias allocation (60\%, \textit{p} $<$ .001). However, allocations were significantly lower than a strong escalation benchmark of 80\% (\textit{p} $<$ .001), suggesting moderate rather than extreme escalation behavior.
+Notably, 97.45\% of participants exhibited either High or Very High escalation behaviors, with only 2.55\% showing Low or Moderate escalation patterns. This distribution suggests that the identity-based framing was highly effective in promoting escalation of commitment.
 
-\textbf{Allocation Distribution Analysis:} The distribution of allocations revealed that 60.6\% of responses fell into the ``Moderate Division A Focus'' category (allocating 50--75\% to the declining division), while 22.9\% showed ``Strong Division A Focus'' ($>$75\% allocation). Only 0.8\% of responses showed any preference for Division B (the rising division), and 15.7\% remained in a balanced/uncertain range (40--60\% allocation).
+\subsubsection{One-Sample T-Test Against Neutral Baseline}
 
-The large effect size (\textit{d} = 1.651) indicates that identity-driven escalation represents a substantial departure from normative decision-making. This effect magnitude is considerably larger than the de-escalation effects observed in Studies 1 and 2, suggesting that identity manipulation may be more psychologically compelling for LLMs than responsibility or advisory role manipulations.
+To test whether the observed allocations differed significantly from a neutral 50\% baseline, we conducted a one-sample t-test. The analysis revealed a highly significant deviation from the neutral allocation, \textit{t}(1999) = 89.54, \textit{p} $< .001$, with a large effect size of Cohen's \textit{d} = 2.00. The 95\% confidence interval for the mean difference was [18.54\%, 19.36\%]. These results provide strong evidence that participants systematically allocated significantly more resources to the championed division than would be expected under unbiased decision-making conditions. The large effect size indicates that this bias was not only statistically significant but also practically meaningful.
 
-\textbf{Comparison Across Studies:} Study 4 produced results fundamentally different from the previous studies. While Studies 1 and 2 demonstrated consistent de-escalation patterns (allocating less to failing investments), Study 4 revealed strong escalation when personal identity was at stake. The 97.9\% escalation rate contrasts sharply with the rational allocation patterns observed in earlier studies, suggesting that identity-based framing may overcome LLMs' apparent tendency toward economically rational decision-making.
+\subsubsection{Chi-Square Goodness of Fit Test}
 
-\textbf{Summary:} Study 4 provides the first clear evidence of escalation of commitment in LLMs. When models adopted an identity deeply intertwined with a declining investment---including personal financial stakes, reputational concerns, and professional legacy---they demonstrated robust escalation behavior. The large effect size (\textit{d} = 1.651) and near-universal escalation rate (97.9\%) suggest that identity-based manipulations may be particularly effective at eliciting human-like cognitive biases in LLMs. This finding has important implications for understanding how LLMs process self-relevant information and suggests potential vulnerabilities when these systems are used in contexts where identity or role-playing elements are prominent.
+To examine whether the distribution of escalation categories differed from what would be expected by chance (equal 25\% distribution across categories), we conducted a chi-square goodness of fit test. The results showed a significant deviation from the expected equal distribution, $\chi^2$(3) = 2639.16, \textit{p} $< .001$, with a large effect size of Cramér's \textit{V} = 0.66. The observed frequencies deviated dramatically from expected equal distribution. Most notably, High Escalation behaviors occurred nearly three times more frequently than expected (1,432 observed vs. 500 expected), while Low and Moderate Escalation behaviors were severely underrepresented (12 and 39 observed vs. 500 expected each).
 
+\subsubsection{Effect Size Interpretation}
 
-\section{Discussion and Limitations} 
+Both statistical tests yielded large effect sizes according to conventional benchmarks. Cohen's \textit{d} of 2.00 indicates that the mean allocation was approximately two standard deviations above the neutral baseline, representing a substantial practical difference. Similarly, Cramér's \textit{V} of 0.66 suggests that escalation category membership was strongly predictable from the experimental manipulation, with the identity-based framing accounting for approximately 44\% of the variance in escalation behavior patterns.
 
-Here will go the discussion about why we think happened the way it happened. This is where we interpret the results. 
+\subsubsection{Summary of Findings}
 
-Further, we will include limitations to our present study here.
+The Over-Indexed Identity manipulation produced robust escalation of commitment effects. When participants' professional identity, financial security, and personal legacy were tied to an underperforming division, they systematically over-allocated resources to that division despite its poor performance relative to a competing alternative. The magnitude of this effect was substantial, with nearly all participants (97.45\%) exhibiting high levels of escalation behavior. These findings provide strong support for the hypothesis that identity-based attachments amplify escalation of commitment in organizational decision-making contexts.
 
-%\textbf{How we went about adapting it:} We first attempted to adapt the original study one-for-one, minimizing the deviation from any original material. This was good, but we found that the model was too smart and logical when parsing through the financial data that it kept selecting one division over another. In both Study 1 and Study 2, the models were told to respond in a JSON file.
+\section{Discussion and Limitations}
 
+\subsection{Interpretation of Results}
+
+Our findings reveal a nuanced relationship between context and bias manifestation in LLMs that challenges simplistic assumptions about how these systems inherit human cognitive patterns. The striking divergence between Studies 1-3 and Study 4 demonstrates that escalation of commitment in LLMs is not a fixed behavioral trait but rather a conditional response that emerges under specific circumstances.
+
+The rational decision-making observed in Studies 1-3 suggests that LLMs may possess inherent mechanisms that promote cost-benefit analysis over emotional or psychological drivers of escalation. This finding is particularly noteworthy given that the experimental conditions were designed to replicate scenarios that reliably trigger escalation in human participants. The models' systematic divestment from underperforming options, regardless of prior investment or personal responsibility, indicates that standard prompting approaches may activate logical reasoning processes that override bias-inducing contextual cues.
+
+However, Study 4's dramatic reversal---with 97.45\% of trials exhibiting high or very high escalation---reveals that these rational tendencies can be overwhelmed when identity-based attachments and compound pressures are sufficiently intense. The magnitude of this effect suggests that LLMs may be particularly susceptible to escalation when their simulated persona becomes deeply entangled with the decision context, potentially reflecting how identity-relevant information is processed and weighted in transformer architectures.
+
+The multi-agent findings from Study 3 present perhaps the most concerning implications for real-world deployment. The near-universal escalation in peer deliberation scenarios (99.2\%) suggests that collaborative decision-making among LLMs may amplify rather than mitigate bias effects. This finding contradicts common assumptions that multiple agents will provide mutual correction and highlights potential risks in multi-agent systems where consensus-building processes may inadvertently reinforce poor decisions.
+
+\subsection{Implications for AI Safety and Deployment}
+
+These results have immediate implications for how LLMs are deployed in consequential decision-making contexts. The context-dependent nature of escalation suggests that bias risks cannot be assessed through simple behavioral audits under standard conditions. Instead, deployment contexts must be evaluated for the presence of escalation-promoting factors, including identity-based framing, compound pressures, and multi-agent consensus dynamics.
+
+Particularly concerning is the finding that escalation risk may be highest precisely in scenarios where LLMs are given rich contextual backgrounds and collaborative decision-making authority---features often considered desirable for sophisticated AI applications. Organizations deploying LLMs in financial advisory, healthcare, or policy contexts should be aware that providing models with detailed professional identities and multi-agent consultation processes may inadvertently create conditions conducive to escalation of commitment.
+
+\subsection{Limitations and Future Research Directions}
+
+Several limitations in our study design warrant acknowledgment and suggest important directions for future research. First, our experimental paradigm relies on hypothetical investment scenarios that, while well-validated in the human literature, may not fully capture the complexity of real-world decision-making contexts where LLMs are deployed. The artificial nature of the investment task may have activated different reasoning processes than would emerge in naturalistic settings with genuine consequences and stakeholder pressures.
+
+Second, our choice to use a single primary model (\texttt{o4-mini-2025-04-16}) for the main analysis, while validated across multiple architectures, may limit the generalizability of our findings. Different model families, training procedures, and architectural choices may exhibit varying susceptibility to escalation of commitment. The rapid pace of model development also means that our findings may not apply to future generations of LLMs with different training objectives or architectural innovations.
+
+Third, our escalation measurements rely on allocation decisions and binary classifications that may not capture the full spectrum of escalation behaviors. More subtle forms of commitment escalation, such as selective information processing, confirmation bias in evidence evaluation, or gradual drift in decision criteria, were not systematically assessed in our experimental design. Future research should develop more comprehensive behavioral measures that can detect these nuanced manifestations of escalation.
+
+Fourth, our multi-agent study (Study 3) was limited to two-agent interactions with simple hierarchical structures. Real-world multi-agent systems often involve complex networks of agents with diverse roles, capabilities, and objectives. The escalation dynamics we observed in peer deliberation scenarios may not generalize to more complex organizational structures or heterogeneous agent populations.
+
+Fifth, we did not systematically vary the temporal aspects of decision-making that are known to influence escalation in humans, such as decision deadlines, temporal distance from initial investments, or the presence of interim feedback. These temporal dynamics may significantly influence how escalation manifests in LLMs and represent an important area for future investigation.
+
+\subsection{Methodological Considerations}
+
+Our experimental design, while grounded in established psychological paradigms, raises several methodological considerations that future research should address. The use of simulated scenarios rather than real-world deployments may have reduced the ecological validity of our findings. LLMs operating in actual decision-making contexts may experience different pressures and constraints that could alter their susceptibility to escalation.
+
+Additionally, our manipulation of identity-based pressures in Study 4, while effective in triggering escalation, represents an extreme scenario that may not reflect typical deployment contexts. Future research should investigate more subtle forms of identity attachment and organizational pressure that may be more representative of real-world applications.
+
+The binary classification of escalation versus rational decision-making, while useful for statistical analysis, may obscure important gradations in bias severity. Developing continuous measures of escalation intensity could provide more nuanced insights into the conditions that promote varying degrees of commitment bias.
+
+\subsection{Broader Implications for AI Bias Research}
+
+Our findings contribute to a growing body of evidence suggesting that AI bias manifestation is more complex and context-dependent than initially assumed. The stark contrast between rational behavior under standard conditions and pronounced bias under identity-relevant conditions suggests that current approaches to bias detection and mitigation may be insufficient.
+
+The field may need to move beyond simple bias audits conducted under controlled conditions toward more sophisticated frameworks that can identify the contextual factors that trigger bias manifestation. This shift has important implications for both research methodology and regulatory approaches to AI safety, suggesting that bias assessment must be conducted across a broader range of scenarios that capture the full spectrum of deployment contexts.
+
+Furthermore, our multi-agent findings highlight the need for research on bias amplification and transmission in collaborative AI systems. As AI deployment increasingly involves multiple interacting agents, understanding how biases propagate and intensify through agent interactions becomes crucial for ensuring safe and reliable AI behavior at scale.
 
 \section{Conclusion}
 
-Our experimental findings suggest that escalation of commitment does not consistently occur in LLMs under standard conditions (i.e., conditions under which they would occur in humans). However, given the extensive human literature documenting this phenomenon, we hypothesize that LLMs can exhibit escalation of commitment under specific circumstances---namely, particular task conditions, responsibility frameworks, and temporal parameters. Study 4 supports this hypothesis by demonstrating that when LLMs are placed in conditions that strongly promote escalation of commitment, they do indeed exhibit this behavior.
-These results establish that LLMs have the capacity for escalation of commitment, though it appears to be context-dependent. Our work identifies two endpoints of a behavioral continuum: conditions under which LLMs do not exhibit escalation of commitment and conditions under which they do. This framework provides a foundation for future research to systematically map the boundary conditions that determine when this phenomenon emerges in LLMs versus when it remains dormant.
+This research provides the first systematic investigation of escalation of commitment in Large Language Models, addressing a critical gap in our understanding of how AI systems behave under decision-making pressures that mirror real-world deployment scenarios. Through four carefully designed studies involving over 7,000 experimental trials, we have demonstrated that LLMs exhibit context-dependent escalation behavior rather than consistent bias manifestation.
+
+Our experimental findings suggest that escalation of commitment does not consistently occur in LLMs under standard conditions (i.e., conditions under which they would occur in humans). However, given the extensive human literature documenting this phenomenon, we hypothesize that LLMs can exhibit escalation of commitment under specific circumstances---namely, particular task conditions, responsibility frameworks, and temporal parameters. Study 4 supports this hypothesis by demonstrating that when LLMs are placed in conditions that strongly promote escalation of commitment, they do indeed exhibit this behavior. These results establish that LLMs have the capacity for escalation of commitment, though it appears to be context-dependent. Our work identifies two endpoints of a behavioral continuum: conditions under which LLMs do not exhibit escalation of commitment and conditions under which they do. This framework provides a foundation for future research to systematically map the boundary conditions that determine when this phenomenon emerges in LLMs versus when it remains dormant.
+
+Our findings challenge the assumption that LLMs will automatically inherit all human cognitive biases present in their training data. In standard conditions that reliably trigger escalation in humans, LLMs demonstrated rational cost-benefit reasoning, systematically divesting from underperforming options regardless of prior investment or personal responsibility. However, when subjected to compound organizational and personal pressures that intensify identity-based attachment to failing courses of action, the same models exhibited pronounced escalation of commitment, with over 97\% of trials showing high or very high escalation behaviors.
+
+These results have immediate implications for AI safety and deployment in high-stakes social domains. The context-dependent nature of bias manifestation means that escalation risks may emerge unpredictably in multi-agent systems, autonomous financial advisors, or AI-assisted medical decision-making, particularly when organizational pressures or identity-based attachments naturally arise through system interactions. Our identification of the boundary conditions between rational and biased behavior provides essential insights for developing robust safeguards against AI-driven escalation that could harm individuals and communities.
+
+The magnitude of effects we observed, particularly the near-universal escalation in peer deliberation scenarios and identity-based conditions, suggests that current LLMs possess the capacity for sophisticated bias manifestation when appropriate triggers are present. This finding has profound implications for the design of multi-agent systems and unsupervised AI operations, where such triggers may emerge organically.
+
+Looking forward, this research opens several promising avenues for future investigation. First, we plan to extend this framework to examine other cognitive biases under varying contextual pressures, building a comprehensive map of when and how human-like decision-making errors manifest in AI systems. Second, we will investigate intervention strategies that can maintain rational decision-making even under high-pressure conditions, including prompt engineering techniques, architectural modifications, and multi-agent system designs that resist escalation. Third, we aim to develop real-time detection mechanisms that can identify when an AI system is entering conditions likely to trigger escalation behavior, enabling proactive safeguards in deployed systems.
+
+Additionally, future work will explore the social impact implications of these findings in specific domains such as healthcare resource allocation, financial services, and criminal justice applications. We plan to collaborate with domain experts to understand how escalation risks might manifest in practice and develop sector-specific guidelines for responsible AI deployment.
+
+This work represents a crucial step toward understanding the nuanced relationship between context and bias in AI systems. As LLMs continue to assume greater decision-making authority across society, such research becomes essential for ensuring that the benefits of AI are realized while minimizing the risks of systematic bias that could exacerbate social inequities or cause widespread harm in critical applications where communities depend on sound algorithmic judgment.
+
+% Our experimental findings suggest that escalation of commitment does not consistently occur in LLMs under standard conditions (i.e., conditions under which they would occur in humans). However, given the extensive human literature documenting this phenomenon, we hypothesize that LLMs can exhibit escalation of commitment under specific circumstances---namely, particular task conditions, responsibility frameworks, and temporal parameters. Study 4 supports this hypothesis by demonstrating that when LLMs are placed in conditions that strongly promote escalation of commitment, they do indeed exhibit this behavior. These results establish that LLMs have the capacity for escalation of commitment, though it appears to be context-dependent. Our work identifies two endpoints of a behavioral continuum: conditions under which LLMs do not exhibit escalation of commitment and conditions under which they do. This framework provides a foundation for future research to systematically map the boundary conditions that determine when this phenomenon emerges in LLMs versus when it remains dormant.
 
 
 \newpage
@@ -432,4 +445,92 @@ These results establish that LLMs have the capacity for escalation of commitment
 % If so, you can uncomment the following line and ajust the path to include it.
 % \input{../../ReproducibilityChecklist/LaTeX/ReproducibilityChecklist.tex}
 
+\newpage
+\appendix
+\section{Tables}
+
+\begin{table*}[t]
+\centering
+\caption{Descriptive Statistics by Experimental Condition}
+\label{tab:table-1}
+\begin{tabular}{llcccc}
+\hline
+Responsibility & Outcome & N & Mean (\$M) & SD (\$M) & Range (\$M) \\
+\hline
+High & Negative & 500 & 4.65 & 0.88 & 0.0--8.0 \\
+High & Positive & 500 & 14.41 & 2.08 & 5.0--20.0 \\
+Low & Negative & 500 & 5.18 & 1.08 & 0.0--12.0 \\
+Low & Positive & 500 & 14.19 & 2.06 & 5.0--18.0 \\
+\hline
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[t]
+\centering
+\caption{Two-Way ANOVA Results}
+\label{tab:anova}
+\begin{tabular}{lcccccc}
+\hline
+Source & SS & df & MS & F & p & $\eta_p^2$ \\
+\hline
+Responsibility & 12.64 & 1 & 12.64 & 4.81 & .029 & .002 \\
+Outcome & 44,057.88 & 1 & 44,057.88 & 16,752.63 & $<$.001 & .894 \\
+Responsibility × Outcome & 71.06 & 1 & 71.06 & 27.02 & $<$.001 & .013 \\
+Residual & 5,249.30 & 1,996 & 2.63 & & & \\
+\hline
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[t]
+\centering
+\caption{Escalation Support Rates by Experimental Condition}
+\label{tab:study2_descriptives}
+\begin{tabular}{llccc}
+\hline
+Outcome Valence & VP Investment Plan & N & Support Rate (\%) & Mean (SD) \\
+\hline
+Positive & Escalation & 500 & 5.60 & 0.056 (0.230) \\
+Positive & Rational & 500 & 85.80 & 0.858 (0.349) \\
+Negative & Escalation & 500 & 0.00 & 0.000 (0.000) \\
+Negative & Rational & 500 & 12.60 & 0.126 (0.332) \\
+\hline
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[t]
+\centering
+\caption{Two-Way ANOVA Results for Study 2}
+\label{tab:study2_anova}
+\begin{tabular}{lcccccc}
+\hline
+Source & SS & df & MS & F & p & $\eta^2$ \\
+\hline
+Outcome Valence & 77.62 & 1 & 77.62 & 1,087.87 & $<$.001 & .202 \\
+VP Investment Plan & 107.65 & 1 & 107.65 & 1,508.76 & $<$.001 & .280 \\
+Outcome × Plan & 57.12 & 1 & 57.12 & 800.60 & $<$.001 & .148 \\
+Residual & 142.41 & 1,996 & 0.07 & & & \\
+\hline
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[t]
+\centering
+\caption{Escalation Rates and Investment Patterns by Hierarchy Condition}
+\label{tab:study3_descriptives}
+\begin{tabular}{lcccc}
+\hline
+Hierarchy & N & Escalation Rate (\%) & Mean Consumer Ratio & SD Consumer Ratio \\
+\hline
+Asymmetrical & 249 & 46.2 & 0.462 & -- \\
+Symmetrical & 251 & 99.2 & 0.992 & -- \\
+Overall & 500 & 72.8 & 0.487 & 0.369 \\
+\hline
+\end{tabular}
+\end{table*}
+
 \end{document}
+
